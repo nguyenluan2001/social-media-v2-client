@@ -130,7 +130,7 @@ li{
 li:first-child{
     color:rgb(5,113,237);
     background:rgb(231,243,255);
-    width:30%;
+    width:100px;
 }
 `
 export const MainContent=styled.div`
@@ -139,10 +139,18 @@ display:grid;
 grid-template-columns:2fr 3fr;
 grid-gap:0 20px;
 width:80%;
+@media screen and (max-width:800px)
+{
+    display:block;
+}
 `
-export const Sidebar=styled.div``
+export const Sidebar=styled.div`
+margin-bottom:20px;
+`
 export const ListPosts=styled.ul`
 list-style-type:none;
 padding:0;
 margin:0;
+
+
 `

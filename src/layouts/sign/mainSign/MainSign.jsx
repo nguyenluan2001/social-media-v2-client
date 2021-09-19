@@ -25,8 +25,8 @@ function MainSign(props) {
                 ? <Container>
                     <Content>
                         <Banner>
-                            <div className="logo">facebook</div>
-                            <p>Facebook helps you connect and share with the people in your life.</p>
+                            <div className="logo">MySocial</div>
+                            <p>MySocial helps you connect and share with the people in your life.</p>
                         </Banner>
                         {signPage}
                     </Content>

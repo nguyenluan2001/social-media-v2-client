@@ -3,18 +3,24 @@ export const Container=styled.div`
 background:white;
 padding:0.5rem;
 border-radius:10px;
+box-sizing:border-box;
 `
 export const TopSection=styled.div`
 display:flex;
 height:50px;
 border-bottom:1px solid black;
 padding:0.5rem 0rem;;
-
-img{
+.avatar
+{
     width:50px;
     height:50px;
+    overflow:hidden;
     border-radius:50%;
-    margin-right:3%;
+    img{
+        width:100%;
+        margin-right:3%;
+    }
+
 }
 textarea{
     border:none;
@@ -37,6 +43,13 @@ li{
     cursor:pointer;
     &:hover{
         background:rgb(240,242,245);
+    }
+    span
+    {
+        @media screen and (max-width:800px)
+        {
+            display:none;
+        }
     }
 }
 // li+li{

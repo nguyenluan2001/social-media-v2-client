@@ -12,17 +12,16 @@ function CreatePost() {
     const [body, setBody] = useState("")
     const { authUser } = useContext(AuthContext)
     const [image, setImage] = useState(null)
-    const [video,setVideo]=useState(null)
-    const [mediaResource,setMediaResource]=useState(false)
+    const [video, setVideo] = useState(null)
+    const [mediaResource, setMediaResource] = useState(false)
     const imageRef = useRef()
     const videoRef = useRef()
-    const videoSourceRef=useRef()
+    const videoSourceRef = useRef()
     function handleChange(e) {
         setBody(e.target.value)
     }
     function handleShare() {
-        if(mediaResource.type.split("/")[0]=="image")
-        {
+        if (mediaResource.type.split("/")[0] == "image") {
             console.log("image")
             let storageRef = ref(storage, `posts/images/${mediaResource.name}`)
             uploadBytes(storageRef, mediaResource).then(snap => {
@@ -39,8 +38,7 @@ function CreatePost() {
             setBody("")
             imageRef.current.src = ""
         }
-        else
-        {
+        else {
             console.log("video")
             let storageRef = ref(storage, `posts/videos/${mediaResource.name}`)
             uploadBytes(storageRef, mediaResource).then(snap => {
@@ -62,25 +60,23 @@ function CreatePost() {
         let preview = URL.createObjectURL(e.target.files[0])
         // console.log(preview)
         // console.log(123)
-        if(e.target.files[0].type.split("/")[0]=="image")
-        {
-            imageRef.current.src=preview
+        if (e.target.files[0].type.split("/")[0] == "image") {
+            imageRef.current.src = preview
             setImage(e.target.files[0])
             setMediaResource(e.target.files[0])
 
         }
-        else
-        {
+        else {
             var reader = new FileReader();
-    
-            reader.onload = function(event) {
-              videoSourceRef.current.src = event.target.result
-              videoRef.current.load()
+
+            reader.onload = function (event) {
+                videoSourceRef.current.src = event.target.result
+                videoRef.current.load()
             }
             reader.readAsDataURL(e.target.files[0]);
             setVideo(e.target.files[0])
             setMediaResource(e.target.files[0])
-            
+
 
         }
         console.log(e.target.files)
@@ -90,21 +86,27 @@ function CreatePost() {
             <TopSection>
                 {
                     authUser?.avatar
-                        ? <img src={authUser?.avatar} />
-                        :
-                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="" />
+                        ? <div className="avatar">
+                            <img src={authUser?.avatar} />
+                        </div>
+                        :<div>
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="" />
+                        </div>
                 }
                 <textarea name="" id="" placeholder="What are you thinking?" onChange={(e) => handleChange(e)} value={body}></textarea>
             </TopSection>
             <img ref={imageRef} src="" alt="" />
-           { video&&<video ref={videoRef} controls>
+            {video && <video ref={videoRef} controls>
                 <source ref={videoSourceRef} id="video-source" src="splashVideo" />
             </video>}
             <FootSection>
                 <ListItem>
                     <li>
-                        <FaPhotoVideo></FaPhotoVideo>
-                        <label htmlFor="image">Photo</label>
+
+                        <label htmlFor="image">
+                            <FaPhotoVideo></FaPhotoVideo>
+                            <span>Photo</span>
+                        </label>
                         <input type="file" hidden id="image" onChange={(e) => handleUploadImage(e)} />
                     </li>
                     <li>

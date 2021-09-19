@@ -30,13 +30,20 @@ li{
     align-items:center;
     border:1px solid rgb(240,242,245);
     border-radius:10px;
-    padding:1rem;
-    a{
-        width:25%;
+    padding:10px 10px;
+    .avatar{
+        width:100px;
+        height:100px;
         margin-right:10px;
+        overflow:hidden;
+        border-radius:10px;
+        @media screen and (max-width:800px)
+        {
+            width:50px;
+            height:50px;
+        }
         img{
             width:100%;
-            border-radius:10px;
         }
 
     }

@@ -3,6 +3,9 @@ import { Link,useHistory } from 'react-router-dom'
 import { useFormik } from "formik"
 import { useMutation } from "@apollo/client"
 import { login } from "../../graphql-client/user/mutation"
+const style={
+    color:"red"
+}
 function Login() {
     const [loginMutation, { data, loading, error }] = useMutation(login)
     const history=useHistory()
@@ -32,6 +35,7 @@ function Login() {
     }, [loading])
     return (
         <form onSubmit={formik.handleSubmit}>
+            {error&&<p style={style}>Your email or password is wrong</p>}
             <div className="wp-input">
                 <input type="text" placeholder="Email or phone number" name="email" onChange={formik.handleChange} />
                 <input type="password" placeholder="Password" name="password" onChange={formik.handleChange} />

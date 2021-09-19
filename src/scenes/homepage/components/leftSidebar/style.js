@@ -6,7 +6,10 @@ top:67px;
 bottom:0;
 height:80vh;
 padding:5% 3%;
-
+@media screen and (max-width:800px)
+{
+    display:none;
+}
 `
 export const ListItem=styled.ul`
 list-style-type:none;

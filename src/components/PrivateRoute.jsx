@@ -37,7 +37,7 @@ function PrivateRoute({ component: Component, ...rest }) {
                 <>
                          {/* {render} */}
                          {
-                             !loading&&data?.checkAuth
+                             !loading
                              ?(
                                  data?.checkAuth
                                  ?<Component {...props}></Component>

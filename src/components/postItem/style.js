@@ -4,6 +4,7 @@ background:white;
 border-radius:10px;
 padding:0.5rem 1rem;
 margin-top:3%;
+box-sizing:border-box;
 .interact-info{
     display:flex;
     justify-content:space-between;
@@ -20,6 +21,12 @@ margin-top:3%;
         img{
             width:25px;
         }
+    }
+}
+.post-content
+{
+    img,video{
+        width:100%;
     }
 }
 `
@@ -79,6 +86,13 @@ li{
     &:hover{
         background:rgb(240,242,245);
     }
+    span
+    {
+        @media screen and (max-width:800px)
+        {
+            // display:none;
+        }
+    }
 }
 .liked{
     color:rgb(45,136,255);
@@ -108,11 +122,16 @@ border-top:1px solid black;
 margin:0;
 li{
     display:flex;
-    img{
+    .avatar
+    {
         width:40px;
         height:40px;
+        overflow:hidden;
         border-radius:50%;
-        margin-right:3%;
+        img{
+            width:100%;
+            margin-right:3%;
+        }
     }
     .wp-comment-content{
         display:flex;

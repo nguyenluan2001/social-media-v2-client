@@ -353,8 +353,12 @@ function PostItem({ post, setSelectedPost }) {
 
                             {
                                 authUser?.avatar
-                                    ? <img src={authUser?.avatar} alt="" />
-                                    : <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="" />
+                                    ? <div className="avatar">
+                                        <img src={authUser?.avatar} alt="" />
+                                    </div>
+                                    : <div class="avatar">
+                                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="" />
+                                    </div>
                             }
                             <input type="text" placeholder="Type something..." value={commentContent} onChange={(e) => handleChangeComment(e)} />
                         </form>
@@ -365,8 +369,12 @@ function PostItem({ post, setSelectedPost }) {
                                 <li>
                                     {
                                         item?.user?.avatar
-                                            ? <img src={item?.user?.avatar} alt="" />
-                                            : <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="" />
+                                            ? <div className="avatar">
+                                                <img src={item?.user?.avatar} alt="" />
+                                            </div>
+                                            : <div className="avatar">
+                                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="" />
+                                            </div>
                                     }
                                     <div className="wp-comment-content">
                                         <span className="username">{item.user.username}</span>

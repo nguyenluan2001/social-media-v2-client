@@ -29,7 +29,7 @@ function AllFriends(props) {
                         data?.getUser?.friends.map(item => {
                             return (
                                 <li>
-                                    <Link to={`/user/${item.id}`}>
+                                    <Link to={`/user/${item.id}`} className="avatar">
                                         <img src={item?.avatar} alt="" />
                                     </Link>
                                     <Link to={`/user/${item.id}`} className="username">{item?.username}</Link>

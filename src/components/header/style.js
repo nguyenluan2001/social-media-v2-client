@@ -9,6 +9,10 @@ padding:1% 3%;
 position:sticky;
 top:0;
 z-index:10;
+left:0;
+right:0;
+box-sizing:border-box;
+// width:100%;
 `
 export const Logo = styled(Link)`
 margin:0;
@@ -42,6 +46,10 @@ input{
     box-sizing:border-box;
 
 }
+@media screen and (max-width:800px)
+{
+    display:none;
+}
 `
 export const Links = styled.ul`
 &{
@@ -55,6 +63,10 @@ export const Links = styled.ul`
     li+li{
         margin-left:5%;
     }
+}
+@media screen and (max-width:800px)
+{
+    display:none;
 }
 `
 export const Notifications = styled.ul`
@@ -72,9 +84,16 @@ export const Notifications = styled.ul`
 `
 export const User = styled.div`
 position:relative;
-img{
+.avatar
+{
     width:40px;
+    height:40px;
+    overflow:hidden;
     border-radius:50%;
+    img{
+        width:100%;
+    }
+
 }
 .pannel{
     position:absolute;
@@ -118,6 +137,10 @@ img{
     }
     
 }
+@media screen and (max-width:800px)
+{
+    display:none;
+}
 
 `
 export const OtherSections = styled.div`
@@ -158,6 +181,40 @@ li{
         .username{
             margin-left:1rem;
             font-weight:bold;
+        }
+    }
+}
+`
+export const ResponsiveMenu=styled.div`
+@media screen and (min-width:800px)
+{
+    display:none;
+}
+& > svg{
+    position:absolute;
+    right:30px;
+    top:30%;
+}
+.menu{
+    list-style-type:none;
+    padding:0;
+    position:absolute;
+    left:0;
+    background:white;
+    width:100%;
+    li{
+        a{
+            padding:0.5rem 1rem;
+            display:block;
+            text-decoration:none;
+            color:black;
+            box-sizing:border-box;
+            svg{
+                margin-right:5%;
+            }
+        }
+        &:hover{
+            background:rgba(0,0,0,0.1);
         }
     }
 }

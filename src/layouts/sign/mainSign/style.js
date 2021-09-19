@@ -11,6 +11,7 @@ form{
     width:100%;
     padding:1rem;
     border-radius:10px;
+    box-sizing:border-box;
     input{
         width:100%;
         padding:0.5rem;
@@ -67,8 +68,16 @@ form{
 `
 export const Content=styled.div`
 display:grid;
-grid-template-columns:3fr 2fr;
 width:70%;
+@media screen and (min-width:800px)
+{
+    grid-template-columns:3fr 2fr;
+
+}
+@media screen and (max-width:800px)
+{
+    grid-template-rows:1fr 2fr;
+}
 `
 
 export const Banner=styled.div`
@@ -80,5 +89,9 @@ justify-content:center;
     font-size:6rem;
     font-weight:bold;
     color:rgb(24,119,242);
+    @media screen and (max-width:800px)
+    {
+        font-size:5rem;
+    }
 }
 `

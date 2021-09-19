@@ -35,10 +35,12 @@ display:flex;
 align-items:center;
 .avatar{
     margin-right:3%;
+    width:50px;
+    height:50px;
+    overflow:hidden;
+    border-radius:50%;
     img{
-        width:50px;
-        height:50px;
-        border-radius:50%;
+        width:100%;
     }
 
 }

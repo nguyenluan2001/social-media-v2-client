@@ -255,8 +255,12 @@ function PostItem({ post, setSelectedPost }) {
                     <Link to={`/user/${post?.user.id}`} className="avatar">
                         {
                             post?.user?.avatar
-                                ? <img src={post?.user?.avatar} alt="" />
-                                : <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="" />
+                                ? <div className="avatar">
+                                    <img src={post?.user?.avatar} alt="" />
+                                </div>
+                                : <div className="avatar">
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80" alt="" />
+                                </div>
                         }
                     </Link>
                     <div className="wp-name">
